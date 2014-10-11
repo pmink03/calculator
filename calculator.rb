@@ -29,7 +29,6 @@ def get_input(message_str)
       puts PROMPT + " Bye."
       exit
     elsif input_type == 'i' || input_type == 'f'
-      puts "type: " + input_type + ", val: " + input_val.to_s
       return input_val
     else
       puts "Invalid entry. Please try again or [q] to quit"
@@ -88,6 +87,8 @@ def do_math(num1, num2)
             puts PROMPT + "#{num1} divided by #{num2} = Infinity"
           elsif( (num2 == 0 || num2 == 0.0) && num1 < 0 )
             puts PROMPT + "#{num1} divided by #{num2} = -Infinity"
+          elsif( (num1%num2) != 0 )
+            puts PROMPT + "#{num1} divided by #{num2} = " + (num1/num2.to_f).to_s
           else
             puts PROMPT + "#{num1} divided by #{num2} = " + (num1/num2).to_s
           end
